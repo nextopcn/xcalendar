@@ -99,7 +99,7 @@
             </dependencies>
         </profile>
         <profile>
-            <id>win_x86</id>
+            <id>win_x86_64</id>
             <activation>
                 <os>
                     <family>windows</family>
