@@ -1,0 +1,164 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>cn.nextop</groupId>
+    <artifactId>xcalendar</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>xcalendar</name>
+
+    <url>https://github.com/nextopcn/xcalendar</url>
+
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Jingqi Xu</name>
+            <email>xujq@nextop.cn</email>
+            <organization>nextopcn</organization>
+        </developer>
+
+        <developer>
+            <name>leon.chen</name>
+            <email>chenby@nextop.cn</email>
+            <organization>nextopcn</organization>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:nextopcn/xcalendar.git</connection>
+        <url>scm:git:git@github.com:nextopcn/xcalendar.git</url>
+        <developerConnection>scm:git:git@github.com:nextopcn/xcalendar.git</developerConnection>
+        <tag>1.0.0</tag>
+    </scm>
+
+    <issueManagement>
+        <system>github</system>
+        <url>https://github.com/nextopcn/xcalendar/issues</url>
+    </issueManagement>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.21</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jface</groupId>
+            <artifactId>text</artifactId>
+            <version>3.3.0-v20070606-0010</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <artifactId>com.patrikdufresne.fontawesome</artifactId>
+            <groupId>com.patrikdufresne</groupId>
+            <version>5.0.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/lib/com.patrikdufresne.fontawesome-5.0.0.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>linux_x86_64</id>
+            <activation>
+                <os>
+                    <name>linux</name>
+                    <arch>amd64</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.eclipse.swt</groupId>
+                    <artifactId>org.eclipse.swt.gtk.linux.x86_64</artifactId>
+                    <version>[4.2.1,)</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>win_x86</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                    <arch>amd64</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.eclipse.swt</groupId>
+                    <artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
+                    <version>[4.2.1,)</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>mac_x86_64</id>
+            <activation>
+                <os>
+                    <family>mac</family>
+                    <arch>amd64</arch>
+                </os>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.eclipse.swt</groupId>
+                    <artifactId>org.eclipse.swt.cocoa.macosx.x86_64</artifactId>
+                    <version>[4.2.1,)</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
