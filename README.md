@@ -18,7 +18,17 @@ swt 4.2.1+
 ```  
 
 # 2. Simple usage  
-# 2.1 DateTime  
+# 2.1. Select date  
+
+```java  
+XCalendar x = new XCalendar(text.getParent(), SWT.DATE);
+x.setup(v -> true, true);
+x.show(text.getParent(), text.getBounds());
+```
+
+![date](./doc/date.png)  
+
+# 2.2. Select time  
 
 ```java  
 XCalendar x = new XCalendar(text.getParent(), SWT.TIME);
@@ -26,4 +36,32 @@ x.setup(v -> true, true);
 x.show(text.getParent(), text.getBounds());
 ```
 
-![date](./doc/date.png)  
+![time](./doc/time.png)  
+
+# 2.3. Select year  
+
+```java  
+XCalendar x = new XCalendar(text.getParent(), SWT.SHORT);
+x.setup(v -> true, true);
+x.show(text.getParent(), text.getBounds());
+```
+
+![year](./doc/year.png)  
+
+# 2.4. Select year month
+
+```java  
+XCalendar x = new XCalendar(text.getParent(), SWT.MEDIUM);
+x.setup(v -> true, true);
+x.show(text.getParent(), text.getBounds());
+```
+
+![year_month](./doc/year_month.png)  
+
+# 2.5. Filters
+
+```java  
+x.setup(v -> v.before(new Date()), true);
+```
+
+![disable](./doc/disable.png)  
