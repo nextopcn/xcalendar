@@ -26,4 +26,4 @@ x.setup(v -> true, true);
 x.show(text.getParent(), text.getBounds());
 ```
 
-!(date)[./doc/date.png]  
+![date](./doc/date.png)  
