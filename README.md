@@ -28,7 +28,7 @@ x.show(text.getParent(), text.getBounds());
 
 ![date](./doc/date.png)  
 
-## 2.2. Select time  
+## 2.2. Select date time  
 
 ```java  
 XCalendar x = new XCalendar(text.getParent(), SWT.TIME);
