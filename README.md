@@ -61,7 +61,7 @@ x.show(text.getParent(), text.getBounds());
 ## 2.5. Filters
 
 ```java  
-x.setup(v -> v.before(new Date()), true);
+x.setup(v -> v.after(new Date()), true);
 ```
 
 ![disable](./doc/disable.png)  
