@@ -1,13 +1,29 @@
-# xcalendar  
-swt calendar widget  
+Table of Contents
+=================
+
+   * [1. Install](#1-install)
+      * [1.1. Brief introduction](#11-brief-introduction)
+      * [1.2. Requirements](#12-requirements)
+      * [1.3. Install from source code](#13-install-from-source-code)
+   * [2. Simple usage](#2-simple-usage)
+      * [2.1. Select date](#21-select-date)
+      * [2.2. Select date time](#22-select-date-time)
+      * [2.3. Select year](#23-select-year)
+      * [2.4. Select year month](#24-select-year-month)
+      * [2.5. Filters](#25-filters)
+      * [2.6. XCalendarSelectEvent](#26-xcalendarselectevent)
+
 
 # 1. Install  
-## 1.1. Requirements  
+## 1.1. Brief introduction  
+swt calendar widget  
+
+## 1.2. Requirements  
 jdk 1.8+  
 maven-3.2.3+  
 swt 4.2.1+  
 
-## 1.2. Install from source code  
+## 1.3. Install from source code  
 
 ``` 
     #windows
@@ -15,6 +31,9 @@ swt 4.2.1+
     
     #mac
     $mvn clean install -Pmac_x86_64 -Dmaven.test.skip=true
+    
+    #linux
+    $mvn clean install -Plinux_x86_64 -Dmaven.test.skip=true
 ```  
 
 # 2. Simple usage  
