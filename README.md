@@ -95,7 +95,7 @@ x.addXCalendarEventListener(new XCalendarEventListener() {
     public void onEvent(XCalendarEvent event) {
         if (!(event instanceof XCalendarSelectEvent)) return;
         XCalendarSelectEvent s = (XCalendarSelectEvent) event;
-        //your code gots here.            
+        //your code goes here.            
     }
 });
 x.show(text.getParent(), text.getBounds());
