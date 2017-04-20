@@ -56,7 +56,7 @@ x.setup(v -> true, true);
 x.show(text.getParent(), text.getBounds());
 ```
 
-![time](./doc/time.png)  
+![date](./doc/date.png)![time](./doc/time.png)  
 
 ## 2.3. Select year  
 
