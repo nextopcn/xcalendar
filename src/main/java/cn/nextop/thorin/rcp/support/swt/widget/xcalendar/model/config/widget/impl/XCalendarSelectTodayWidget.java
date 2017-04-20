@@ -36,7 +36,7 @@ public class XCalendarSelectTodayWidget extends AbstractXCalendarWidget {
 	@Override
 	public Pair<Point> locate(int x, int y, int w, int m) {
 		XCalendarModel model = popup.getModel();
-		boolean time = model.isTime(), nullable = model.isNullable();
+		boolean time = model.isDateTime(), nullable = model.isNullable();
 		int u = w / 7; int c = 1 + (time ? 1 : 0) + (nullable ? 1 : 0);
 		if(!time && !nullable) {
 			return new Pair<>(new Point(w / c, u),new Point(m, y + u));

@@ -197,7 +197,7 @@ public class XCalendar extends Canvas {
 	}
 
 	protected static int checkStyle(int style) {
-		if((style & SWT.TIME) != 0 || (style & SWT.DATE) != 0 || 
-		   (style & SWT.SHORT) != 0 || (style & SWT.MEDIUM) != 0) return style; else throw new SWTException(SWT.ERROR_INVALID_ARGUMENT);
+		if((style & SWT.TIME) != 0 || (style & SWT.DATE) != 0 || (style & SWT.LONG) != 0 ||
+				(style & SWT.SHORT) != 0 || (style & SWT.MEDIUM) != 0) return style; else throw new SWTException(SWT.ERROR_INVALID_ARGUMENT);
 	}
 }

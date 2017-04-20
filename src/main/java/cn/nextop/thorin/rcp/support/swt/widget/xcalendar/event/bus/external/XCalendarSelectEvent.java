@@ -4,6 +4,7 @@ import cn.nextop.thorin.rcp.support.swt.widget.xcalendar.event.bus.AbstractXCale
 import org.eclipse.swt.widgets.Event;
 
 import javax.annotation.Nullable;
+import java.sql.Time;
 import java.time.YearMonth;
 import java.time.ZoneId;
 import java.util.Date;
@@ -33,6 +34,10 @@ public class XCalendarSelectEvent extends AbstractXCalendarEvent {
 	 */
 	public Date getValue() {
 		return value;
+	}
+
+	public Time getTime() {
+		return value == null ? null : new Time(value.getTime());
 	}
 	
 	public Integer getYear() {

@@ -42,7 +42,7 @@ public class XCalendarWidgetFactory {
 		XCalendarModel model = popup.getModel();
 		List<XCalendarWidget> widgets = new LinkedList<>();
 		widgets.add(new XCalendarSelectTodayWidget(popup));
-		widgets.add(new XCalendarSelectTimeWidget(popup));
+		if (!model.isTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
 		if (model.isNullable()) widgets.add(new XCalendarClearWidget(popup));
 		
 		widgets.add(new XCalendarIncrWidget(popup, XCalendarTime.HOUR));
@@ -65,7 +65,7 @@ public class XCalendarWidgetFactory {
 		
 		int hourColumn = 4, hourRow = 6;
 		widgets.add(new XCalendarSelectTodayWidget(popup));
-		widgets.add(new XCalendarSelectTimeWidget(popup));
+		if (!model.isTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
 		if (model.isNullable()) widgets.add(new XCalendarClearWidget(popup));
 		
 		for (int row = 0; row < hourRow; row++)
@@ -81,7 +81,7 @@ public class XCalendarWidgetFactory {
 		
 		int minuteColumn = 4, minuteRow = 3;
 		widgets.add(new XCalendarSelectTodayWidget(popup));
-		widgets.add(new XCalendarSelectTimeWidget(popup));
+		if (!model.isTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
 		if (model.isNullable()) widgets.add(new XCalendarClearWidget(popup));
 		
 		for (int row = 0; row < minuteRow; row++)
@@ -97,7 +97,7 @@ public class XCalendarWidgetFactory {
 		
 		int secondColumn = 4, secondRow = 3;
 		widgets.add(new XCalendarSelectTodayWidget(popup));
-		widgets.add(new XCalendarSelectTimeWidget(popup));
+		if (!model.isTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
 		if (model.isNullable()) widgets.add(new XCalendarClearWidget(popup));
 		
 		for (int row = 0; row < secondRow; row++)
@@ -124,7 +124,7 @@ public class XCalendarWidgetFactory {
 				widgets.add(new XCalendarDayWidget(popup, col, row));
 
 		widgets.add(new XCalendarSelectTodayWidget(popup));
-		if (model.isTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
+		if (model.isDateTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
 		if (model.isNullable()) widgets.add(new XCalendarClearWidget(popup));
 		out.put(XCalendarState.DATE, widgets);
 	}
@@ -140,7 +140,7 @@ public class XCalendarWidgetFactory {
 				widgets.add(new XCalendarMonthWidget(popup, col, row));
 		
 		widgets.add(new XCalendarSelectTodayWidget(popup));
-		if (model.isTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
+		if (model.isDateTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
 		if (model.isNullable()) widgets.add(new XCalendarClearWidget(popup));
 		out.put(XCalendarState.MONTH, widgets);
 	}
@@ -156,7 +156,7 @@ public class XCalendarWidgetFactory {
 				widgets.add(new XCalendarYearWidget(popup, col, row));
 		
 		widgets.add(new XCalendarSelectTodayWidget(popup));
-		if (model.isTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
+		if (model.isDateTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
 		if (model.isNullable()) widgets.add(new XCalendarClearWidget(popup));
 		out.put(XCalendarState.YEAR, widgets);
 	}
@@ -172,7 +172,7 @@ public class XCalendarWidgetFactory {
 				widgets.add(new XCalendarDecadeWidget(popup, col, row));
 		
 		widgets.add(new XCalendarSelectTodayWidget(popup));
-		if (model.isTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
+		if (model.isDateTime()) widgets.add(new XCalendarSelectTimeWidget(popup));
 		if (model.isNullable()) widgets.add(new XCalendarClearWidget(popup));
 		out.put(XCalendarState.DECADE, widgets);
 	}
