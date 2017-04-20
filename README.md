@@ -10,8 +10,9 @@ Table of Contents
       * [2.2. Select date time](#22-select-date-time)
       * [2.3. Select year](#23-select-year)
       * [2.4. Select year month](#24-select-year-month)
-      * [2.5. Filters](#25-filters)
-      * [2.6. XCalendarSelectEvent](#26-xcalendarselectevent)
+      * [2.5. Select time](#25-select-time)
+      * [2.6. Filters](#26-filters)
+      * [2.7. XCalendarSelectEvent](#27-xcalendarselectevent)
 
 
 # 1. Install  
@@ -50,12 +51,12 @@ x.show(text.getParent(), text.getBounds());
 ## 2.2. Select date time  
 
 ```java  
-XCalendar x = new XCalendar(text.getParent(), SWT.TIME);
+XCalendar x = new XCalendar(text.getParent(), SWT.LONG);
 x.setup(v -> true, true);
 x.show(text.getParent(), text.getBounds());
 ```
 
-![time](./doc/time.png)  
+![date](./doc/date.png)![time](./doc/time.png)  
 
 ## 2.3. Select year  
 
@@ -77,7 +78,17 @@ x.show(text.getParent(), text.getBounds());
 
 ![year_month](./doc/year_month.png)  
 
-## 2.5. Filters
+## 2.5. Select time  
+
+```java  
+XCalendar x = new XCalendar(text.getParent(), SWT.TIME);
+x.setup(v -> true, true);
+x.show(text.getParent(), text.getBounds());
+```
+
+![time](./doc/time.png)  
+
+## 2.6. Filters
 
 ```java  
 x.setup(v -> v.after(new Date()), true);
@@ -85,7 +96,7 @@ x.setup(v -> v.after(new Date()), true);
 
 ![disable](./doc/disable.png)  
 
-## 2.6. XCalendarSelectEvent
+## 2.7. XCalendarSelectEvent
 
 ```java  
 XCalendar x = new XCalendar(text.getParent(), SWT.MEDIUM);

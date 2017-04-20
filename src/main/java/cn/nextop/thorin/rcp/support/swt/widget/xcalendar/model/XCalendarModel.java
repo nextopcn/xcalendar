@@ -41,16 +41,18 @@ public class XCalendarModel {
 		this.style = style;
 		this.config = new XCalendarConfig();
 		this.zoneId = ZoneId.systemDefault();
-		this.calendar = new XVirtualCalendar(this.zoneId, isTime());
+		this.calendar = new XVirtualCalendar(this.zoneId, isDateTime());
 		this.theme = new XCalendarThemeFactory().create(Locale.getDefault());
 		
 		//
-		if (isTime()) {
+		if (isDateTime()) {
 			this.stateMachine = new XCalendarStateMachine(DATE, TIME);
 		} else if (isDate()) {
 			this.stateMachine = new XCalendarStateMachine(DATE, null);
 		} else if (isYear()) {
 			this.stateMachine = new XCalendarStateMachine(YEAR, null);
+		} else if (isTime()) {
+			this.stateMachine = new XCalendarStateMachine(TIME, null);
 		} else if (isYearMonth()) {
 			this.stateMachine = new XCalendarStateMachine(MONTH, null);
 		} 
@@ -69,6 +71,10 @@ public class XCalendarModel {
 
 	public boolean isYear() {
 		return (style & SWT.SHORT) != 0;
+	}
+
+	public boolean isDateTime() {
+		return (style & SWT.LONG) != 0;
 	}
 	
 	public boolean isYearMonth() {
@@ -138,7 +144,7 @@ public class XCalendarModel {
 	 * 
 	 */
 	public Date now() {
-		if(!isTime()) {
+		if(!isDateTime() && !isTime()) {
 			return toDate(truncatedTo(XCalendarUtils.now(getZoneId()), ChronoUnit.DAYS));
 		} else {
 			return toDate(truncatedTo(XCalendarUtils.now(getZoneId()), ChronoUnit.SECONDS));

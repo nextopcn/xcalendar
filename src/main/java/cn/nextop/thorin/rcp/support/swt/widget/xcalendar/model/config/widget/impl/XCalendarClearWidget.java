@@ -35,7 +35,7 @@ public class XCalendarClearWidget extends AbstractXCalendarWidget {
 	@Override
 	public Pair<Point> locate(int x, int y, int w, int m) {
 		XCalendarModel model = popup.getModel();
-		boolean time = model.isTime(), nullable = model.isNullable();
+		boolean time = model.isDateTime(), nullable = model.isNullable();
 		int unit = w / 7, c = 1 + (time ? 1 : 0) + (nullable ? 1 : 0);
 		return new Pair<>(new Point(w / c, unit), new Point(m, y + unit));
 	}

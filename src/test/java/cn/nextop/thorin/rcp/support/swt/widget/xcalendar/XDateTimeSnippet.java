@@ -28,7 +28,7 @@ public class XDateTimeSnippet {
         shell.setLayout(null);
 
         //
-        Object[] o1 = calendar(shell, SWT.TIME, v -> v.before(new Date()), true);
+        Object[] o1 = calendar(shell, SWT.LONG, v -> v.before(new Date()), true);
         Text text1 = (Text) o1[0];
         Button button1 = (Button) o1[1];
 
@@ -44,7 +44,7 @@ public class XDateTimeSnippet {
         Text text4 = (Text) o4[0];
         Button button4 = (Button) o4[1];
 
-        Object[] o5 = calendar(shell, SWT.TIME, v -> true, false);
+        Object[] o5 = calendar(shell, SWT.LONG, v -> true, false);
         Text text5 = (Text) o5[0];
         Button button5 = (Button) o5[1];
 
@@ -56,6 +56,10 @@ public class XDateTimeSnippet {
         Text text7 = (Text) o7[0];
         Button button7 = (Button) o7[1];
 
+        Object[] o8 = calendar(shell, SWT.TIME, v -> true, true);
+        Text text8 = (Text) o8[0];
+        Button button8 = (Button) o8[1];
+
         shell.addControlListener(new ControlListener() {
             @Override
             public void controlMoved(ControlEvent e) {
@@ -64,7 +68,7 @@ public class XDateTimeSnippet {
             @Override
             public void controlResized(ControlEvent e) {
                 final Rectangle r = shell.getClientArea();
-                final int h = (r.height - 5) / 9;
+                final int h = (r.height - 5) / 10;
                 text1.setBounds(5, 5, r.width - 60, h - 5);
                 button1.setBounds(5 + r.width - 60, 5, 40, h - 5);
 
@@ -85,10 +89,13 @@ public class XDateTimeSnippet {
 
                 text7.setBounds(5, 6 * h + 5, r.width - 60, h - 5);
                 button7.setBounds(5 + r.width - 60, 6 * h + 5, 40, h - 5);
+
+                text8.setBounds(5, 7 * h + 5, r.width - 60, h - 5);
+                button8.setBounds(5 + r.width - 60, 7 * h + 5, 40, h - 5);
             }
         });
         //
-        shell.setSize(300, 300);
+        shell.setSize(300, 330);
         shell.layout();
         shell.open();
         SwtUtils.center(shell);
@@ -128,8 +135,8 @@ public class XDateTimeSnippet {
                     XCalendarSelectEvent s = (XCalendarSelectEvent) event;
                     text.setData(s.getValue());
                     String v = "";
-                    if (s.getValue() != null || s.getYear() != null || s.getYearMonth() != null) {
-                        if (x.getModel().isTime()) {
+                    if (s.getValue() != null || s.getYear() != null || s.getYearMonth() != null || s.getTime() != null) {
+                        if (x.getModel().isDateTime()) {
                             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                             v = format.format(s.getValue());
                         } else if (x.getModel().isDate()) {
@@ -140,6 +147,9 @@ public class XDateTimeSnippet {
                         } else if (x.getModel().isYearMonth()) {
                             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
                             v = format.format(s.getValue());
+                        } else if (x.getModel().isTime()) {
+                            SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+                            v = format.format(s.getTime());
                         }
                     }
                     text.setText(v);
