@@ -8,7 +8,7 @@ import java.util.Set;
  * 
  * @author Jingqi Xu
  */
-@SuppressWarnings({"unchecked", "rawtypes"})
+@SuppressWarnings({"unchecked"})
 public final class Objects {
 	//
 	public static final Object NULL = new Object();
